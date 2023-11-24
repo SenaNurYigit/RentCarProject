@@ -1,8 +1,11 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess;
+using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,14 +36,19 @@ namespace DataAccess.Concrete.InMemory
             _car.Remove(carToDelete);
         }
 
-        public List<Car> GetAll()
+        public List<Car> Get(Expression<Func<Car, bool>> filter)
         {
-            return _car.ToList();
+            throw new NotImplementedException();
         }
 
-        public List<Car> GetById(int carId)
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            return _car.Where(p => p.Id == carId).ToList();
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)
@@ -52,6 +60,11 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.ColorId=car.ColorId;
             carToUpdate.BrandId=car.BrandId;
 
+        }
+
+        Car IEntityRepository<Car>.Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
     }
     }

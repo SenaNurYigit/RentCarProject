@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface ICarService
+    public interface IColorService
     {
-        List<Car> GetAll();
-        List<Car> GetById(int id);
-        
+        List<Color> GetAll();
+        List<Color> GetById(int id);
     }
 }
